@@ -6529,3 +6529,20 @@ Please also refer to the documentation for alternative solver options:
                random_state=123, reg_alpha=0.0, reg_lambda=0.0, subsample=1.0,
                subsample_for_bin=200000, subsample_freq=0)
 2024-11-28 17:09:35,563:INFO:compare_models() successfully completed......................................
+2024-12-04 20:05:13,405:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-04 20:05:13,405:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-04 20:05:13,405:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-04 20:05:13,405:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-04 20:36:20,697:WARNING:C:\Users\morena\AppData\Local\Temp\ipykernel_2580\2437751441.py:2: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.boxplot(x='RainTomorrow', y='Humidity3pm', data=df_weather, palette='Set3')
+
+2024-12-04 20:37:00,764:WARNING:C:\Users\morena\AppData\Local\Temp\ipykernel_2580\2422227336.py:51: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  metricas_df = pd.concat([metricas_df, resultados], ignore_index=True)
+
