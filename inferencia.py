@@ -13,17 +13,17 @@ model = load('model_sequential_optimized.pkl')
 def procesar_data(data):
     # Convertir 'RainToday' a valores binarios
     data['RainToday'] = data['RainToday'].map({'Yes': 1, 'No': 0})
+    data['RainTomorrow'] = data['RainTomorrow'].map({'Yes': 1, 'No': 0})
     
     # Imputar categoricas
     data['RainToday'] = data['RainToday'].fillna(data['RainToday'].mode().iloc[0])
-
-    columna_rain_today = data['RainToday']
+    data['RainTomorrow'] = data['RainTomorrow'].fillna(data['RainTomorrow'].mode().iloc[0])
 
     data['Date'] = pd.to_datetime(data['Date'])
     data = data.sort_values(by='Date')
 
     # Eliminar columnas sin valor significativo predictivo
-    categorical_cols = ['WindGustDir', 'WindDir9am', 'WindDir3pm', 'Date', 'Location', 'RainTomorrow','RainToday']
+    categorical_cols = ['WindGustDir', 'WindDir9am', 'WindDir3pm', 'Date', 'Location']
     data = data.drop(columns=categorical_cols)
 
     # Eliminar filas nan
@@ -38,7 +38,7 @@ def procesar_data(data):
     columns_to_scale = [col for col in float_columns if col not in ['RainTomorrow', 'RainToday']]
     data[columns_to_scale] = scaler.transform(data[columns_to_scale])
 
-    data['RainToday'] = columna_rain_today
+    data = data.drop('RainTomorrow', axis = 1)
     return data
 
 # Definir la interfaz
